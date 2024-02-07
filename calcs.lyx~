@@ -504,7 +504,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1.1$
+\begin_inset Formula $1$
 \end_inset
 
 
@@ -516,7 +516,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $14$
+\begin_inset Formula $17$
 \end_inset
 
 
@@ -554,7 +554,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1.4$
+\begin_inset Formula $2$
 \end_inset
 
 
@@ -566,7 +566,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $28$
+\begin_inset Formula $153$
 \end_inset
 
 
@@ -592,7 +592,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $0.3$
+\begin_inset Formula $0.4$
 \end_inset
 
 
@@ -604,7 +604,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $8.7$
+\begin_inset Formula $33$
 \end_inset
 
 
@@ -616,7 +616,7 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $874$
+\begin_inset Formula $2694$
 \end_inset
 
 
@@ -682,10 +682,6 @@ cvxpy
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -700,6 +696,525 @@ cvxpy
 \begin_inset Formula 
 \[
 \left\Vert v\right\Vert _{2}=\sqrt{\sum_{i=1}^{d}v_{i}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(a_{1},a_{2}\right),\left(b_{1},b_{2}\right),\left(c_{1},c_{2}\right),\left(d_{1},d_{2}\right)
+\]
+
+\end_inset
+
+ידוע: 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ זה 
+\begin_inset Formula $x$
+\end_inset
+
+ מינימלי, 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ מקסימלי.
+ כנ
+\begin_inset Quotes erd
+\end_inset
+
+ל 
+\begin_inset Formula $c_{2},d_{2}$
+\end_inset
+
+ ב-
+\begin_inset Formula $y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+יש רק 
+\begin_inset Formula $\le2d$
+\end_inset
+
+ נקודות - קצת.
+\begin_inset Formula 
+\[
+\left(a_{1}-\varepsilon,d_{2}-\varepsilon\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+o=\left(o_{x},o_{y}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(a_{1}-o_{x}\right)^{2}+\left(a_{2}-o_{y}\right)^{2}\le r^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(d_{1}-o_{x}\right)^{2}+\left(d_{2}-o_{y}\right)^{2}\le r^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\sqrt{\left(a_{1}-\varepsilon-o_{x}\right)^{2}+\left(d_{2}-\varepsilon-o_{y}\right)^{2}} & \le\sqrt{\left(a_{1}-o_{x}\right)^{2}+\left(d_{2}-o_{y}\right)^{2}}\\
+ & =
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(a_{1}-\varepsilon-o_{x}\right)^{2} & =a_{1}^{2}-a_{1}\varepsilon-a_{1}o_{x}-a_{1}\varepsilon+\varepsilon^{2}+\varepsilon o_{x}-o_{x}a_{1}+\varepsilon o_{x}+o_{x}^{2}\\
+ & =a_{1}^{2}-2a_{1}\varepsilon-2a_{1}o_{x}+\varepsilon^{2}+2\varepsilon o_{x}+o_{x}^{2}\\
+ & =\left(a_{1}-o_{x}\right)^{2}-2a_{1}\varepsilon+\varepsilon^{2}+2\varepsilon o_{x}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(a_{1}-\varepsilon-o_{x}\right)^{2}+\left(d_{2}-\varepsilon-o_{y}\right)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\min & \left\Vert y\right\Vert _{\infty}\\
+\text{s.t.} & \forall1\le i\le n:\left\Vert x-p_{i}\right\Vert _{2}\le y_{i}
+\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Updownarrow
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\min & r\\
+\text{s.t.} & \forall1\le i\le n:\left\Vert x-p_{i}\right\Vert _{2}\le r
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+nd\cdot\text{polylog}\left(\frac{1}{\varepsilon}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n\log n
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n\log r\le nd
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r\le2^{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+n\log2^{d}=nd
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d\le3\Rightarrow n\log r
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d\ge4\Rightarrow\frac{nf_{r}}{r}=\frac{n\cdot r^{\left\lfloor d/2\right\rfloor }}{r\cdot\left\lfloor d/2\right\rfloor !}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{n\cdot r^{\left\lfloor d/2\right\rfloor }}{r\cdot\left\lfloor d/2\right\rfloor !}\le nd
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r^{\left\lfloor d/2\right\rfloor -1}\le d\left\lfloor d/2\right\rfloor !
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r\le\sqrt[\left\lfloor d/2\right\rfloor -1]{d\left\lfloor d/2\right\rfloor !}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d=2m
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(2m\left(m\right)!\right)^{\frac{1}{m-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אם משתמשים ב-
+\lang english
+CH
+\lang hebrew
+, אז עושים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+CH
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על חלק מהנקודות כך שנישאר בסיבוכיות של 
+\begin_inset Formula $nd$
+\end_inset
+
+, ואז נעשה כרגיל על בתקווה פחות נקודות.
+\begin_inset Formula 
+\[
+\left(\dots,\max x^{i}-\min x^{i},\dots\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+חלק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+: כל מיני אופטימזיות סטייל קונבקס הול
+\end_layout
+
+\begin_layout Standard
+חלק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+: נקודה התחלתית ממוצע - ממוצע
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+entry-wise
+\end_layout
+
+\begin_layout Standard
+חלק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+: התקרבות לאופטימום דרך ה-
+\lang english
+central path
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\min\left\Vert \left[\begin{array}{c}
+|\\
+\left\Vert x-p_{i}\right\Vert _{2}^{2}\\
+|
+\end{array}\right]\right\Vert _{\infty}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\Vert \left[\begin{array}{c}
+|\\
+\left\Vert x-p_{i}\right\Vert _{2}^{2}\\
+|
+\end{array}\right]\right\Vert _{\infty}=\left\Vert \left[\begin{array}{c}
+|\\
+\left\langle x-p_{i},x-p_{i}\right\rangle \\
+|
+\end{array}\right]\right\Vert _{\infty}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\begin{array}{ccc}
+- & v_{1} & -\\
+ & \vdots\\
+- & v_{n} & -
+\end{array}\right]_{n\times d}\left[\begin{array}{ccc}
+| &  & |\\
+v_{1} & \cdots & v_{n}\\
+| &  & |
+\end{array}\right]_{d\times n}1_{n\times1}=\left[\begin{array}{c}
+|\\
+\left\langle v_{i},v_{i}\right\rangle \\
+|
+\end{array}\right]_{n\times1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\Vert \left[\begin{array}{ccc}
+- & x-p_{1} & -\\
+ & \vdots\\
+- & x-p_{n} & -
+\end{array}\right]_{n\times d}\left[\begin{array}{ccc}
+| &  & |\\
+x-p_{1} & \cdots & x-p_{n}\\
+| &  & |
+\end{array}\right]_{d\times n}1_{n\times1}\right\Vert _{\infty}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
 \]
 
 \end_inset

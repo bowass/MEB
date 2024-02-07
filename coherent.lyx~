@@ -1,0 +1,360 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{enumitem}
+\setlist[itemize,1]{label={\fontfamily{cmr}\fontencoding{T1}\selectfont\textbullet}}
+%\definecolor{cyan}{RGB}{0, 180, 180}
+%\definecolor{yellow}{RGB}{211,211,0}
+%\definecolor{red}{RGB}{120,0,0}
+%\definecolor{green}{RGB}{0, 120, 0}
+%\definecolor{blue}{RGB}{0, 0, 120}
+\usepackage{tikz}
+\usetikzlibrary{automata, positioning, arrows}
+\tikzset{
+	->, % makes the edges directed
+	>=stealth, % makes the arrow heads bold
+	node distance=3cm, % specifies the minimum distance between two nodes. Change if necessary.
+	every state/.style={thick, fill=gray!10}, % sets the properties for each ’state’ node
+	initial text=$ $, % sets the text that appears on the start arrow
+}
+\usepackage{chngcntr}
+\counterwithin*{section}{part}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+customHeadersFooters
+\end_modules
+\maintain_unincluded_children false
+\language american
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "Linux Biolinum O"
+\font_sans "default" "Frank Ruehl CLM"
+\font_typewriter "default" "Miriam CLM"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 3cm
+\headheight 0cm
+\headsep 0cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bulletLaTeX 1 "-"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\paragraph_spacing double
+\align center
+
+\series bold
+\size huge
+\lang english
+Minimum Enclosing Ball
+\end_layout
+
+\begin_layout Itemize
+The objective function is convex.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The traditional approach of the solution contains 
+\lang american
+multiple parts:
+\end_layout
+
+\begin_layout Itemize
+Convex hull-like optimizations in order to better the optimization process
+ afterwards.
+\end_layout
+
+\begin_layout Itemize
+Starting point: we start at an initial point 
+\begin_inset Formula $x^{\left(0\right)}\in\mathbb{R}^{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Although every point in the input is a 
+\begin_inset Formula $2$
+\end_inset
+
+-approximation to the MEB center, it might be better to start at a less
+ trivial point.
+\end_layout
+
+\begin_layout Itemize
+Mean and median might be as bad as any other point.
+\end_layout
+
+\begin_layout Itemize
+The starting point 
+\begin_inset Formula $x^{\left(0\right)}=\left(\begin{array}{c}
+\vdots\\
+\frac{\max_{p\in P}p_{i}+\min_{p\in P}p_{i}}{2}\\
+\vdots
+\end{array}\right)$
+\end_inset
+
+ looks promising (didn't prove anything yet).
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Moving towards the central path, via Newton's method, TRM, etc.
+\end_layout
+
+\begin_layout Itemize
+It may be possible to reduce MEB to medoid: 
+\begin_inset Formula $\left\Vert \alpha\right\Vert _{\infty}\mapsto\left\Vert \alpha\right\Vert _{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pseudo-code:
+\end_layout
+
+\begin_layout Itemize
+Input: Points 
+\begin_inset Formula $p_{1},\dots,p_{n}\in\mathbb{R}^{d}$
+\end_inset
+
+, accuracy 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x^{\left(0\right)}\gets p_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+for 
+\begin_inset Formula $1\le i\le k$
+\end_inset
+
+, 
+\begin_inset Formula $k=\log^{\mathcal{O}\left(1\right)}\frac{1}{\varepsilon}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Use 1st order methods (e.g.
+ GD) to derive a point 
+\begin_inset Formula $x^{\prime}$
+\end_inset
+
+, such that 
+\begin_inset Formula $f\left(x^{\prime}\right)\le f\left(x^{\left(i-1\right)}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Use 2nd order methods to derive 
+\begin_inset Formula $x^{\left(i\right)}$
+\end_inset
+
+ from 
+\begin_inset Formula $x^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+return 
+\begin_inset Formula $x^{\left(k\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(It is equivalent to use 
+\begin_inset Formula $\left\Vert \cdot\right\Vert _{2}^{2}$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+f\left(x\right)=\max_{1\le i\le n}\left\Vert x-p_{i}\right\Vert _{2}^{2}
+\]
+
+\end_inset
+
+Computing 
+\begin_inset Formula $\nabla f$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial x_{i}}f\left(x\right)=\lim_{p\to\infty}\frac{\partial}{\partial x_{i}}\left\Vert \left[\begin{array}{c}
+|\\
+\left\Vert x-p_{j}\right\Vert _{2}^{2}\\
+|
+\end{array}\right]\right\Vert _{p}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial x_{i}}\left\Vert \left[\begin{array}{c}
+|\\
+\left\Vert x-p_{j}\right\Vert _{2}^{2}\\
+|
+\end{array}\right]\right\Vert _{p} & =\frac{\partial}{\partial x_{i}}\left(\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p}\right)^{\nicefrac{1}{p}}\\
+ & =\frac{1}{p}\left(\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p}\right)^{\nicefrac{1}{p}-1}\frac{\partial}{\partial x_{i}}\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial x_{i}}\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p} & =\frac{\partial}{\partial x_{i}}\left(\sum_{j=1}^{n}\sum_{k=1}^{d}\left(x_{k}-p_{j,k}\right)^{2}\right)^{p}\\
+ & =p\left(\sum_{j=1}^{n}\sum_{k=1}^{d}\left(x_{k}-p_{j,k}\right)^{2}\right)^{p-1}\frac{\partial}{\partial x_{i}}\sum_{j=1}^{n}\left(x_{i}-p_{j,i}\right)^{2}\\
+ & =2p\left(\sum_{j=1}^{n}\sum_{k=1}^{d}\left(x_{k}-p_{j,k}\right)^{2}\right)^{p-1}\sum_{j=1}^{n}\left(x_{i}-p_{j,i}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow\frac{\partial}{\partial x_{i}}\left\Vert \left[\begin{array}{c}
+|\\
+\left\Vert x-p_{j}\right\Vert _{2}^{2}\\
+|
+\end{array}\right]\right\Vert _{p} & =\frac{1}{p}\left(\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p}\right)^{\nicefrac{1}{p}-1}\cdot2p\left(\sum_{j=1}^{n}\sum_{k=1}^{d}\left(x_{k}-p_{j,k}\right)^{2}\right)^{p-1}\sum_{j=1}^{n}\left(x_{i}-p_{j,i}\right)\\
+ & =2\left(\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p}\right)^{\nicefrac{1}{p}-1}\left(\sum_{j=1}^{n}\sum_{k=1}^{d}\left(x_{k}-p_{j,k}\right)^{2}\right)^{p-1}\sum_{j=1}^{n}\left(x_{i}-p_{j,i}\right)
+\end{align*}
+
+\end_inset
+
+hence, the gradient can be computed using this limit (probably there's a
+ simpler approch)
+\begin_inset Formula 
+\[
+\lim_{p\to\infty}\frac{\partial}{\partial x_{i}}\left\Vert \left[\begin{array}{c}
+|\\
+\left\Vert x-p_{j}\right\Vert _{2}^{2}\\
+|
+\end{array}\right]\right\Vert _{p}=\lim_{p\to\infty}2\left(\sum_{j=1}^{n}\left\Vert x-p_{j}\right\Vert _{2}^{2p}\right)^{\nicefrac{1}{p}-1}\left(\sum_{j=1}^{n}\sum_{k=1}^{d}\left(x_{k}-p_{j,k}\right)^{2}\right)^{p-1}\sum_{j=1}^{n}\left(x_{i}-p_{j,i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
